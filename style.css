@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(200, 255, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    gap: 500px;
+    font-size: 50px;
+    margin-bottom: 200px;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button{
+border-style: none;
+box-sizing: border-box;
+background: none;
+}
+
+.containerButtons {
+    display: flex;
+    margin-bottom: 50px;
+    gap: 50px;
+}
+
+.display {
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.score {
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.congrats {
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.rock {
+    padding-top: 50px;
+}
