@@ -105,7 +105,7 @@ function clickButton(button) {
         playerGame = 'Rock';
     } else if (button.className === 'paper') {
         playerGame = 'Paper';
-    } else if (button.ClassName === 'scissors') {
+    } else {
         playerGame = 'Scissors';
     }
     game(playerGame);
