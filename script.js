@@ -1,3 +1,32 @@
+// all global variables
+const play = document.querySelector('.play');
+const buttons = document.querySelectorAll('button');
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                if (win >= 5 || lose >= 5) {
+                    return;
+                } else {
+                    clickButton(button);
+                }
+            });
+        });
+
+const display = document.querySelector('.display');
+display.setAttribute('style', 'margin-top: 5px; white-space: pre-line;');
+
+const score = document.querySelector('.score');
+score.setAttribute('style', 'margin-top: 5px; white-space: pre-line;');
+
+const body = document.querySelector('body');
+
+const congrats = document.createElement('div');
+congrats.classList.add('congrats');
+body.appendChild(congrats);
+
+let round = '';
+let win = 0;
+let lose = 0;
+
 // function that will randomly return either 'Rock', 'Paper' or 'Scissors'
 function computerPlay() {
     let result;
@@ -13,7 +42,6 @@ function computerPlay() {
 }
 
 // function that plays a single round of Rock Paper Scissors
-let round = '';
 function playRound(playerSelection, computerSelection){
     let text = ''
     let player = playerSelection.toLowerCase();
@@ -21,55 +49,49 @@ function playRound(playerSelection, computerSelection){
     let computer = computerSelection.toLowerCase();
     if (player === computer) {
         round = 'draw';
-        text = ("It's a draw!\n\nYour Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+        text = "It's a draw!\n\nPlayer: " + playerSelection + "\n" + "Computer: " + computerSelection;
     } else if (player === "rock"){
         if (computer === "scissors") {
             round = 'win';
-            text = "You Win! Rock beats Scissors!\n\nYour Choice: " + playerSelection + ". " + "Computer: " + computerSelection;
+            text = "You Win! Rock beats Scissors!\n\nPlayer: " + playerSelection + "\n" + "Computer: " + computerSelection;
         } else {
             round = 'lose';
-            text = "You Lose! Paper beats Rock!\n\nYour Choice: " + playerSelection + ". " + "Computer: " + computerSelection;
+            text = "You Lose! Paper beats Rock!\n\nPlayer: " + playerSelection + "\n" + "Computer: " + computerSelection;
         }
     } else if (player === "paper"){
         if (computer === "rock") {
             round = 'win';
-            text = "You Win! Paper beats Rock!\n\nYour Choice: " + playerSelection + ". " + "Computer: " + computerSelection;
+            text = "You Win! Paper beats Rock!\n\nPlayer: " + playerSelection + "\n" + "Computer: " + computerSelection;
         } else {
             round = 'lose';
-            text = "You Lose! Scissor beats Paper!\n\nYour Choice: " + playerSelection + ". " + "Computer: " + computerSelection;
+            text = "You Lose! Scissor beats Paper!\n\nPlayer: " + playerSelection + "\n" + "Computer: " + computerSelection;
         }
     } else if (player === "scissors"){
         if (computer === "paper") {
             round = 'win';
-            text = "You Win! Scissor beats Paper!\n\nYour Choice: " + playerSelection + ". " + "Computer: " + computerSelection;
+            text = "You Win! Scissor beats Paper!\n\nPlayer: " + playerSelection + "\n" + "Computer: " + computerSelection;
         } else {
             round = 'lose';
-            text = "You Lose! Rock beats Scissors!\n\nYour Choice: " + playerSelection + ". " + "Computer: " + computerSelection;
+            text = "You Lose! Rock beats Scissors!\n\nPlayer: " + playerSelection + "\n" + "Computer: " + computerSelection;
         }
-    } else {
-        round = 'error';
-        text = "Something went wrong. Please type only: Rock, Paper or Scissors";
-        } 
+    } 
     display.textContent = text;
-    return display.textContent
-    
+    return display.textContent 
  }    
 
 // function that plays a 5 round game, keeps score and reports a winner or loser at the end
-let win = 0;
-let lose = 0;
 function game(playerGame){
     let result = playRound(playerGame);
     console.log(result)
 
     if (round == 'win') {
         win++;
-        score.textContent = "Score: \nPlayer = " + win + ".\nComputer = " + lose + ".";
+        score.textContent = "Player - " + win + "\nComputer - " + lose;
     } else if (round == 'lose') {
         lose++
-        score.textContent = "Score: \nPlayer = " + win + ".\nComputer = " + lose + ".";
+        score.textContent = "Player - " + win + "\nComputer - " + lose;
     } else {
-        score.textContent = "Score: \nPlayer = " + win + ".\nComputer = " + lose + ".";
+        score.textContent = "Player - " + win + "\nComputer - " + lose;
     } 
     
     if (win == 5 || lose == 5) {
@@ -91,34 +113,12 @@ function clickButton(button) {
 
 function testRound() {
     if (win > lose) {
-        congrats.textContent = ("Congratulations! You Win!");
+        congrats.textContent = ("Game Over. You Win!");
     } else if (lose > win) {
-        congrats.textContent = ("You lose! Try again.");
+        congrats.textContent = ("Game Over. You lose! Try again.");
     } else {
-        congrats.textContent = ("It's a Draw!");
+        congrats.textContent = ("Game Over. It's a Draw!");
     }
 }
 
-const play = document.querySelector('.play');
-const buttons = document.querySelectorAll('button');
-        buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            if (win >= 5 || lose >= 5) {
-                return;
-            } else {
-                clickButton(button);
-            }
-        });
-        });
 
-const display = document.querySelector('.display');
-display.setAttribute('style', 'margin-top: 5px; white-space: pre-line;');
-
-const score = document.querySelector('.score');
-score.setAttribute('style', 'margin-top: 5px; white-space: pre-line;');
-
-const body = document.querySelector('body');
-
-const congrats = document.createElement('div');
-congrats.classList.add('congrats');
-body.appendChild(congrats);
