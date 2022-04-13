@@ -22,9 +22,10 @@ h1 {
 }
 
 button{
-border-style: none;
-box-sizing: border-box;
-background: none;
+    height: 200px;
+    width: 200px;
+    border-style: none;
+    box-sizing: border-box;
 }
 
 .containerButtons {
@@ -41,6 +42,7 @@ background: none;
     text-align: center;
     font-weight: bold;
     font-size: 24px;
+    box-sizing: border-box;
 }
 
 .score {
@@ -58,5 +60,17 @@ background: none;
 }
 
 .rock {
-    padding-top: 50px;
+    margin-top: 50px;
+    background: url(./rock.png) no-repeat;
+    background-size: cover;
+}
+
+.paper {
+    background: url(./hold.png) no-repeat;
+    background-size: cover;
+}
+
+.scissors {
+    background: url(./scissor.png) no-repeat;
+    background-size: cover;
 }
