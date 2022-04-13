@@ -105,7 +105,7 @@ function clickButton(button) {
         playerGame = 'Rock';
     } else if (button.className === 'paper') {
         playerGame = 'Paper';
-    } else {
+    } else if (button.ClassName === 'scissors') {
         playerGame = 'Scissors';
     }
     game(playerGame);
@@ -114,11 +114,25 @@ function clickButton(button) {
 function testRound() {
     if (win > lose) {
         congrats.textContent = ("Game Over. You Win!");
+        resetButton ();
     } else if (lose > win) {
         congrats.textContent = ("Game Over. You lose! Try again.");
+        resetButton ();
     } else {
         congrats.textContent = ("Game Over. It's a Draw!");
+        resetButton ();
     }
+}
+
+function resetButton () {
+    const reset = document.createElement('button');
+    reset.classList.add('reset');
+    body.appendChild(reset);
+    reset.textContent = "Try Again!"
+    reset.addEventListener('click', () => {
+        location.reload(true);
+    })
+    
 }
 
 
