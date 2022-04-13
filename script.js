@@ -116,7 +116,7 @@ function testRound() {
         congrats.textContent = ("Game Over. You Win!");
         resetButton ();
     } else if (lose > win) {
-        congrats.textContent = ("Game Over. You lose! Try again.");
+        congrats.textContent = ("Game Over. You lose!");
         resetButton ();
     } else {
         congrats.textContent = ("Game Over. It's a Draw!");
